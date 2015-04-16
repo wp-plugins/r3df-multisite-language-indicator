@@ -1,0 +1,54 @@
+﻿=== R3DF Multisite Language Indicator ===
+Contributors: r3df
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MX3FLF4YGXRLE
+Tags: dashboard, multi-lingual, multilingual, language, languages, network, site tag, site indicator, site, indicator, locale, flag
+Stable tag: 1.0.0
+Requires at least: 4.1
+Tested up to: 4.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Adds language indicators (flag, locale or language) beside the site title of sites to help identify similarly named sites in multilingual multisites.
+
+== Description ==
+
+A plugin that adds language indicators, either a flag, locale or language, beside the site title of sites to help identify similarly
+named sites in multilingual multisites. This is most helpfull in sites with admin language selectors, where the admin language does not
+reflect the site language.
+
+There is a French translation of this plugin included. It was mostly a test of the translation of the plugin.  It's not a great translation, if you can improve it please let me know.
+
+
+== Installation ==
+
+The easy way:
+
+1. To install this plugin, click on "Add New" on the plugins page in your WordPress dashboard.
+1. Search for "R3DF Multisite Language Indicator", click install when it's found.
+1. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Configure the plugin in the settings page.
+
+The hard way:
+
+1. Download the latest r3df-multisite-language-indicator.zip from wordpress.org
+1. Upload r3df-dashboard-language.zip to the `/wp-content/plugins/` folder on your web server
+1. Uncompress r3df-multisite-language-indicator.zip (delete r3df-multisite-language-indicator.zip after it's uncompressed)
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Configure the plugin in the settings page.
+
+
+== Screenshots ==
+1. Flag indicators.
+1. Flag indicators and locale indicators.
+1. Language indicator.
+
+
+== Changelog ==
+
+= Version 1.0.0 =
+* initial release
+
+
+== Upgrade Notice ==
+= 1.0.0 =
+* Initial release
