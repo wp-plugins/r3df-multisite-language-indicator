@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R3DF - Multisite Language Indicator\n"
-"POT-Creation-Date: 2015-04-15 20:46-0500\n"
-"PO-Revision-Date: 2015-04-15 20:46-0500\n"
+"POT-Creation-Date: 2015-04-16 14:53-0500\n"
+"PO-Revision-Date: 2015-04-16 14:53-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,1356 +17,1361 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: r3df-multisite-language-indicator.php:204
+#: r3df-multisite-language-indicator.php:227
 msgid "Save Changes"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:218
-msgid "Language indicators:"
+#: r3df-multisite-language-indicator.php:241
+msgid "Local options:"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:219
-msgid "Enable flags:"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:221
+#: r3df-multisite-language-indicator.php:242
 msgid "Flag to use for site indicators:"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:222
-msgid "Enable locale abbreviations:"
+#: r3df-multisite-language-indicator.php:244
+msgid "Global options:"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:223
-msgid "Display site language:"
+#: r3df-multisite-language-indicator.php:245
+msgid "Select language indicators to display:"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:225
-msgid "General options:"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:226
+#: r3df-multisite-language-indicator.php:246
 msgid "Cleanup all settings at plugin uninstall:"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:261
-msgid "Choose which indicator(s) to display."
+#: r3df-multisite-language-indicator.php:291
+msgid "The options in this section, are for this site only."
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:271
-#: r3df-multisite-language-indicator.php:329
-msgid "Yes"
+#: r3df-multisite-language-indicator.php:301
+msgid "The options in this section, are for ALL sites."
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:285
+#: r3df-multisite-language-indicator.php:315
 msgid "Auto detect"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:295
+#: r3df-multisite-language-indicator.php:321
 msgid ""
 "Auto detect uses the country code of the site's locale setting,<br>or you "
 "can choose a flag to represent the site."
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:307
-#: r3df-multisite-language-indicator.php:318
-msgid "Before"
+#: r3df-multisite-language-indicator.php:333
+msgid "Country flags - before site name"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:308
-#: r3df-multisite-language-indicator.php:319
-msgid "After"
+#: r3df-multisite-language-indicator.php:334
+msgid "Locale code - before site name"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:344
-#: r3df-multisite-language-indicator.php:357
+#: r3df-multisite-language-indicator.php:335
+msgid "Locale code - after site name"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:336
+msgid "Site language - before site name"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:337
+msgid "Site language - after site name"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:348
+msgid "Yes"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:363
+#: r3df-multisite-language-indicator.php:376
 msgid "Options"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:358
+#: r3df-multisite-language-indicator.php:377
 msgid "TBD"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:360
+#: r3df-multisite-language-indicator.php:379
 msgid "Plugin Directory"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:361
+#: r3df-multisite-language-indicator.php:380
 msgid "Change Logs"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:362
+#: r3df-multisite-language-indicator.php:381
 msgid "by"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:439
-msgid "Arabic"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:440
-msgid "Azerbaijani"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:441
-msgid "Bulgarian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:442
-msgid "Bosnian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:443
-msgid "Catalan"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:444
-msgid "Welsh"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:445
-msgid "Danish"
-msgstr ""
-
 #: r3df-multisite-language-indicator.php:446
-msgid "German"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:447
-msgid "German (Switzerland)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:448
-msgid "Greek"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:449
-msgid "English (Canada)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:450
-msgid "English (UK)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:451
-msgid "English (Australia)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:452
-msgid "Esperanto"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:453
-msgid "Spanish (Mexico)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:454
-msgid "Spanish (Peru)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:455
-msgid "Spanish (Spain)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:456
-msgid "Spanish (Chile)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:457
-msgid "Basque"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:458
-msgid "Persian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:459
-msgid "Finnish"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:460
-msgid "French (France)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:461
-msgid "Scottish Gaelic"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:462
-msgid "Galician"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:463
-msgid "Hazaragi"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:464
-msgid "Hebrew"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:465
-msgid "Croatian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:466
-msgid "Hungarian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:467
-msgid "Indonesian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:468
-msgid "Icelandic"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:469
-msgid "Italian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:470
-msgid "Japanese"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:471
-msgid "Korean"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:472
-msgid "Lithuanian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:473
-msgid "Burmese"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:474
-msgid "Norwegian (Bokmål)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:475
-msgid "Dutch"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:476
-msgid "Polish"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:477
-msgid "Pashto"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:478
-msgid "Portuguese (Portugal)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:479
-msgid "Portuguese (Brazil)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:480
-msgid "Romanian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:481
-msgid "Russian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:482
-msgid "Slovak"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:483
-msgid "Slovenian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:484
-msgid "Serbian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:485
-msgid "Swedish"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:486
-msgid "Thai"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:487
-msgid "Turkish"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:488
-msgid "Uighur"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:489
-msgid "Ukrainian"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:490
-msgid "Chinese (Taiwan)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:491
-msgid "Chinese (China)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:492
-msgid "English (United States)"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:493
-msgid "Unknown"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:601
 msgid "Plugin can not be activated."
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:601
+#: r3df-multisite-language-indicator.php:446
 msgid "required"
 msgstr ""
 
-#: r3df-multisite-language-indicator.php:601
+#: r3df-multisite-language-indicator.php:446
 msgid "actual"
 msgstr ""
 
+#: r3df-multisite-language-indicator.php:588
+msgid "Arabic"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:589
+msgid "Azerbaijani"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:590
+msgid "Bulgarian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:591
+msgid "Bosnian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:592
+msgid "Catalan"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:593
+msgid "Welsh"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:594
+msgid "Danish"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:595
+msgid "German"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:596
+msgid "German (Switzerland)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:597
+msgid "Greek"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:598
+msgid "English (Canada)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:599
+msgid "English (UK)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:600
+msgid "English (Australia)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:601
+msgid "Esperanto"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:602
+msgid "Spanish (Mexico)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:603
+msgid "Spanish (Peru)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:604
+msgid "Spanish (Spain)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:605
+msgid "Spanish (Chile)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:606
+msgid "Basque"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:607
+msgid "Persian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:608
+msgid "Finnish"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:609
+msgid "French (France)"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:610
+msgid "Scottish Gaelic"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:611
+msgid "Galician"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:612
+msgid "Hazaragi"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:613
+msgid "Hebrew"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:614
+msgid "Croatian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:615
+msgid "Hungarian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:616
+msgid "Indonesian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:617
+msgid "Icelandic"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:618
+msgid "Italian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:619
+msgid "Japanese"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:620
+msgid "Korean"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:621
+msgid "Lithuanian"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:622
+msgid "Burmese"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:623
+msgid "Norwegian (Bokmål)"
+msgstr ""
+
 #: r3df-multisite-language-indicator.php:624
-msgid "Andorra"
+msgid "Dutch"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:625
-msgid "United Arab Emirates"
+msgid "Polish"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:626
-msgid "Afghanistan"
+msgid "Pashto"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:627
-msgid "Antigua and Barbuda"
+msgid "Portuguese (Portugal)"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:628
-msgid "Anguilla"
+msgid "Portuguese (Brazil)"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:629
-msgid "Albania"
+msgid "Romanian"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:630
-msgid "Armenia"
+msgid "Russian"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:631
-msgid "Netherlands Antilles"
+msgid "Slovak"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:632
-msgid "Angola"
+msgid "Slovenian"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:633
-msgid "Antarctica"
+msgid "Serbian"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:634
-msgid "Argentina"
+msgid "Swedish"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:635
-msgid "American Samoa"
+msgid "Thai"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:636
-msgid "Austria"
+msgid "Turkish"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:637
-msgid "Australia"
+msgid "Uighur"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:638
-msgid "Aruba"
+msgid "Ukrainian"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:639
-msgid "Azerbaijan"
+msgid "Chinese (Taiwan)"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:640
-msgid "Bosnia and Herzegovina"
+msgid "Chinese (China)"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:641
-msgid "Barbados"
+msgid "English (United States)"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:642
-msgid "Bangladesh"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:643
-msgid "Belgium"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:644
-msgid "Burkina Faso"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:645
-msgid "Bulgaria"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:646
-msgid "Bahrain"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:647
-msgid "Burundi"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:648
-msgid "Benin"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:649
-msgid "Saint Barthélemy"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:650
-msgid "Bermuda"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:651
-msgid "Brunei"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:652
-msgid "Bolivia"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:653
-msgid "British Antarctic Territory"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:654
-msgid "Brazil"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:655
-msgid "Bahamas"
-msgstr ""
-
-#: r3df-multisite-language-indicator.php:656
-msgid "Bhutan"
+msgid "Unknown"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:657
-msgid "Bouvet Island"
+msgid "Andorra"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:658
-msgid "Botswana"
+msgid "United Arab Emirates"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:659
-msgid "Belarus"
+msgid "Afghanistan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:660
-msgid "Belize"
+msgid "Antigua and Barbuda"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:661
-msgid "Canada"
+msgid "Anguilla"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:662
-msgid "Cocos [Keeling] Islands"
+msgid "Albania"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:663
-msgid "Congo - Kinshasa"
+msgid "Armenia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:664
-msgid "Central African Republic"
+msgid "Netherlands Antilles"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:665
-msgid "Congo - Brazzaville"
+msgid "Angola"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:666
-msgid "Switzerland"
+msgid "Antarctica"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:667
-msgid "Côte d’Ivoire"
+msgid "Argentina"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:668
-msgid "Cook Islands"
+msgid "American Samoa"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:669
-msgid "Chile"
+msgid "Austria"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:670
-msgid "Cameroon"
+msgid "Australia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:671
-msgid "China"
+msgid "Aruba"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:672
-msgid "Colombia"
+msgid "Azerbaijan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:673
-msgid "Costa Rica"
+msgid "Bosnia and Herzegovina"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:674
-msgid "Serbia and Montenegro"
+msgid "Barbados"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:675
-msgid "Canton and Enderbury Islands"
+msgid "Bangladesh"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:676
-msgid "Cuba"
+msgid "Belgium"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:677
-msgid "Cape Verde"
+msgid "Burkina Faso"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:678
-msgid "Christmas Island"
+msgid "Bulgaria"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:679
-msgid "Cyprus"
+msgid "Bahrain"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:680
-msgid "Czech Republic"
+msgid "Burundi"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:681
-msgid "Germany"
+msgid "Benin"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:682
-msgid "Djibouti"
+msgid "Saint Barthélemy"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:683
-msgid "Denmark"
+msgid "Bermuda"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:684
-msgid "Dominica"
+msgid "Brunei"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:685
-msgid "Dominican Republic"
+msgid "Bolivia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:686
-msgid "Algeria"
+msgid "British Antarctic Territory"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:687
-msgid "Ecuador"
+msgid "Brazil"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:688
-msgid "Estonia"
+msgid "Bahamas"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:689
-msgid "Egypt"
+msgid "Bhutan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:690
-msgid "Western Sahara"
+msgid "Bouvet Island"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:691
-msgid "Eritrea"
+msgid "Botswana"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:692
-msgid "Spain"
+msgid "Belarus"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:693
-msgid "Ethiopia"
+msgid "Belize"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:694
-msgid "Finland"
+msgid "Canada"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:695
-msgid "Fiji"
+msgid "Cocos [Keeling] Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:696
-msgid "Falkland Islands"
+msgid "Congo - Kinshasa"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:697
-msgid "Micronesia"
+msgid "Central African Republic"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:698
-msgid "Faroe Islands"
+msgid "Congo - Brazzaville"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:699
-msgid "French Southern and Antarctic Territories"
+msgid "Switzerland"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:700
-msgid "France"
+msgid "Côte d’Ivoire"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:701
-msgid "Metropolitan France"
+msgid "Cook Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:702
-msgid "Gabon"
+msgid "Chile"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:703
-msgid "United Kingdom"
+msgid "Cameroon"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:704
-msgid "Grenada"
+msgid "China"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:705
-msgid "Georgia"
+msgid "Colombia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:706
-msgid "French Guiana"
+msgid "Costa Rica"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:707
-msgid "Guernsey"
+msgid "Serbia and Montenegro"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:708
-msgid "Ghana"
+msgid "Canton and Enderbury Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:709
-msgid "Gibraltar"
+msgid "Cuba"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:710
-msgid "Greenland"
+msgid "Cape Verde"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:711
-msgid "Gambia"
+msgid "Christmas Island"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:712
-msgid "Guinea"
+msgid "Cyprus"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:713
-msgid "Guadeloupe"
+msgid "Czech Republic"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:714
-msgid "Equatorial Guinea"
+msgid "Germany"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:715
-msgid "Greece"
+msgid "Djibouti"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:716
-msgid "South Georgia and the South Sandwich Islands"
+msgid "Denmark"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:717
-msgid "Guatemala"
+msgid "Dominica"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:718
-msgid "Guam"
+msgid "Dominican Republic"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:719
-msgid "Guinea-Bissau"
+msgid "Algeria"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:720
-msgid "Guyana"
+msgid "Ecuador"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:721
-msgid "Hong Kong SAR China"
+msgid "Estonia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:722
-msgid "Heard Island and McDonald Islands"
+msgid "Egypt"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:723
-msgid "Honduras"
+msgid "Western Sahara"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:724
-msgid "Croatia"
+msgid "Eritrea"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:725
-msgid "Haiti"
+msgid "Spain"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:726
-msgid "Hungary"
+msgid "Ethiopia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:727
-msgid "Indonesia"
+msgid "Finland"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:728
-msgid "Ireland"
+msgid "Fiji"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:729
-msgid "Israel"
+msgid "Falkland Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:730
-msgid "Isle of Man"
+msgid "Micronesia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:731
-msgid "India"
+msgid "Faroe Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:732
-msgid "British Indian Ocean Territory"
+msgid "French Southern and Antarctic Territories"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:733
-msgid "Iraq"
+msgid "France"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:734
-msgid "Iran"
+msgid "Metropolitan France"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:735
-msgid "Iceland"
+msgid "Gabon"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:736
-msgid "Italy"
+msgid "United Kingdom"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:737
-msgid "Jersey"
+msgid "Grenada"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:738
-msgid "Jamaica"
+msgid "Georgia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:739
-msgid "Jordan"
+msgid "French Guiana"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:740
-msgid "Japan"
+msgid "Guernsey"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:741
-msgid "Johnston Island"
+msgid "Ghana"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:742
-msgid "Kenya"
+msgid "Gibraltar"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:743
-msgid "Kyrgyzstan"
+msgid "Greenland"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:744
-msgid "Cambodia"
+msgid "Gambia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:745
-msgid "Kiribati"
+msgid "Guinea"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:746
-msgid "Comoros"
+msgid "Guadeloupe"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:747
-msgid "Saint Kitts and Nevis"
+msgid "Equatorial Guinea"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:748
-msgid "North Korea"
+msgid "Greece"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:749
-msgid "South Korea"
+msgid "South Georgia and the South Sandwich Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:750
-msgid "Kuwait"
+msgid "Guatemala"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:751
-msgid "Cayman Islands"
+msgid "Guam"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:752
-msgid "Kazakhstan"
+msgid "Guinea-Bissau"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:753
-msgid "Laos"
+msgid "Guyana"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:754
-msgid "Lebanon"
+msgid "Hong Kong SAR China"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:755
-msgid "Saint Lucia"
+msgid "Heard Island and McDonald Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:756
-msgid "Liechtenstein"
+msgid "Honduras"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:757
-msgid "Sri Lanka"
+msgid "Croatia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:758
-msgid "Liberia"
+msgid "Haiti"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:759
-msgid "Lesotho"
+msgid "Hungary"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:760
-msgid "Lithuania"
+msgid "Indonesia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:761
-msgid "Luxembourg"
+msgid "Ireland"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:762
-msgid "Latvia"
+msgid "Israel"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:763
-msgid "Libya"
+msgid "Isle of Man"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:764
-msgid "Morocco"
+msgid "India"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:765
-msgid "Monaco"
+msgid "British Indian Ocean Territory"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:766
-msgid "Moldova"
+msgid "Iraq"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:767
-msgid "Montenegro"
+msgid "Iran"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:768
-msgid "Saint Martin"
+msgid "Iceland"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:769
-msgid "Madagascar"
+msgid "Italy"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:770
-msgid "Marshall Islands"
+msgid "Jersey"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:771
-msgid "Midway Islands"
+msgid "Jamaica"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:772
-msgid "Macedonia"
+msgid "Jordan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:773
-msgid "Mali"
+msgid "Japan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:774
-msgid "Myanmar [Burma]"
+msgid "Johnston Island"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:775
-msgid "Mongolia"
+msgid "Kenya"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:776
-msgid "Macau SAR China"
+msgid "Kyrgyzstan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:777
-msgid "Northern Mariana Islands"
+msgid "Cambodia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:778
-msgid "Martinique"
+msgid "Kiribati"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:779
-msgid "Mauritania"
+msgid "Comoros"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:780
-msgid "Montserrat"
+msgid "Saint Kitts and Nevis"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:781
-msgid "Malta"
+msgid "North Korea"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:782
-msgid "Mauritius"
+msgid "South Korea"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:783
-msgid "Maldives"
+msgid "Kuwait"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:784
-msgid "Malawi"
+msgid "Cayman Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:785
-msgid "Mexico"
+msgid "Kazakhstan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:786
-msgid "Malaysia"
+msgid "Laos"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:787
-msgid "Mozambique"
+msgid "Lebanon"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:788
-msgid "Namibia"
+msgid "Saint Lucia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:789
-msgid "New Caledonia"
+msgid "Liechtenstein"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:790
-msgid "Niger"
+msgid "Sri Lanka"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:791
-msgid "Norfolk Island"
+msgid "Liberia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:792
-msgid "Nigeria"
+msgid "Lesotho"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:793
-msgid "Nicaragua"
+msgid "Lithuania"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:794
-msgid "Netherlands"
+msgid "Luxembourg"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:795
-msgid "Norway"
+msgid "Latvia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:796
-msgid "Nepal"
+msgid "Libya"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:797
-msgid "Dronning Maud Land"
+msgid "Morocco"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:798
-msgid "Nauru"
+msgid "Monaco"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:799
-msgid "Niue"
+msgid "Moldova"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:800
-msgid "New Zealand"
+msgid "Montenegro"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:801
-msgid "Oman"
+msgid "Saint Martin"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:802
-msgid "Panama"
+msgid "Madagascar"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:803
-msgid "Pacific Islands Trust Territory"
+msgid "Marshall Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:804
-msgid "Peru"
+msgid "Midway Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:805
-msgid "French Polynesia"
+msgid "Macedonia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:806
-msgid "Papua New Guinea"
+msgid "Mali"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:807
-msgid "Philippines"
+msgid "Myanmar [Burma]"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:808
-msgid "Pakistan"
+msgid "Mongolia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:809
-msgid "Poland"
+msgid "Macau SAR China"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:810
-msgid "Saint Pierre and Miquelon"
+msgid "Northern Mariana Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:811
-msgid "Pitcairn Islands"
+msgid "Martinique"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:812
-msgid "Puerto Rico"
+msgid "Mauritania"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:813
-msgid "Palestinian Territories"
+msgid "Montserrat"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:814
-msgid "Portugal"
+msgid "Malta"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:815
-msgid "U.S. Miscellaneous Pacific Islands"
+msgid "Mauritius"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:816
-msgid "Palau"
+msgid "Maldives"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:817
-msgid "Paraguay"
+msgid "Malawi"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:818
-msgid "Panama Canal Zone"
+msgid "Mexico"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:819
-msgid "Qatar"
+msgid "Malaysia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:820
-msgid "Réunion"
+msgid "Mozambique"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:821
-msgid "Romania"
+msgid "Namibia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:822
-msgid "Serbia"
+msgid "New Caledonia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:823
-msgid "Russia"
+msgid "Niger"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:824
-msgid "Rwanda"
+msgid "Norfolk Island"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:825
-msgid "Saudi Arabia"
+msgid "Nigeria"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:826
-msgid "Solomon Islands"
+msgid "Nicaragua"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:827
-msgid "Seychelles"
+msgid "Netherlands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:828
-msgid "Sudan"
+msgid "Norway"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:829
-msgid "Sweden"
+msgid "Nepal"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:830
-msgid "Singapore"
+msgid "Dronning Maud Land"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:831
-msgid "Saint Helena"
+msgid "Nauru"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:832
-msgid "Slovenia"
+msgid "Niue"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:833
-msgid "Svalbard and Jan Mayen"
+msgid "New Zealand"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:834
-msgid "Slovakia"
+msgid "Oman"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:835
-msgid "Sierra Leone"
+msgid "Panama"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:836
-msgid "San Marino"
+msgid "Pacific Islands Trust Territory"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:837
-msgid "Senegal"
+msgid "Peru"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:838
-msgid "Somalia"
+msgid "French Polynesia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:839
-msgid "Suriname"
+msgid "Papua New Guinea"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:840
-msgid "São Tomé and Príncipe"
+msgid "Philippines"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:841
-msgid "Union of Soviet Socialist Republics"
+msgid "Pakistan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:842
-msgid "El Salvador"
+msgid "Poland"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:843
-msgid "Syria"
+msgid "Saint Pierre and Miquelon"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:844
-msgid "Swaziland"
+msgid "Pitcairn Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:845
-msgid "Turks and Caicos Islands"
+msgid "Puerto Rico"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:846
-msgid "Chad"
+msgid "Palestinian Territories"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:847
-msgid "French Southern Territories"
+msgid "Portugal"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:848
-msgid "Togo"
+msgid "U.S. Miscellaneous Pacific Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:849
-msgid "Thailand"
+msgid "Palau"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:850
-msgid "Tajikistan"
+msgid "Paraguay"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:851
-msgid "Tokelau"
+msgid "Panama Canal Zone"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:852
-msgid "Timor-Leste"
+msgid "Qatar"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:853
-msgid "Turkmenistan"
+msgid "Réunion"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:854
-msgid "Tunisia"
+msgid "Romania"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:855
-msgid "Tonga"
+msgid "Serbia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:856
-msgid "Turkey"
+msgid "Russia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:857
-msgid "Trinidad and Tobago"
+msgid "Rwanda"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:858
-msgid "Tuvalu"
+msgid "Saudi Arabia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:859
-msgid "Taiwan"
+msgid "Solomon Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:860
-msgid "Tanzania"
+msgid "Seychelles"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:861
-msgid "Ukraine"
+msgid "Sudan"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:862
-msgid "Uganda"
+msgid "Sweden"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:863
-msgid "U.S. Minor Outlying Islands"
+msgid "Singapore"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:864
-msgid "United States"
+msgid "Saint Helena"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:865
-msgid "Uruguay"
+msgid "Slovenia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:866
-msgid "Uzbekistan"
+msgid "Svalbard and Jan Mayen"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:867
-msgid "Vatican City"
+msgid "Slovakia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:868
-msgid "Saint Vincent and the Grenadines"
+msgid "Sierra Leone"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:869
-msgid "North Vietnam"
+msgid "San Marino"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:870
-msgid "Venezuela"
+msgid "Senegal"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:871
-msgid "British Virgin Islands"
+msgid "Somalia"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:872
-msgid "U.S. Virgin Islands"
+msgid "Suriname"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:873
-msgid "Vietnam"
+msgid "São Tomé and Príncipe"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:874
-msgid "Vanuatu"
+msgid "Union of Soviet Socialist Republics"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:875
-msgid "Wallis and Futuna"
+msgid "El Salvador"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:876
-msgid "Wake Island"
+msgid "Syria"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:877
-msgid "Samoa"
+msgid "Swaziland"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:878
-msgid "People's Democratic Republic of Yemen"
+msgid "Turks and Caicos Islands"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:879
-msgid "Yemen"
+msgid "Chad"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:880
-msgid "Mayotte"
+msgid "French Southern Territories"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:881
-msgid "South Africa"
+msgid "Togo"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:882
-msgid "Zambia"
+msgid "Thailand"
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:883
+msgid "Tajikistan"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:884
+msgid "Tokelau"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:885
+msgid "Timor-Leste"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:886
+msgid "Turkmenistan"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:887
+msgid "Tunisia"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:888
+msgid "Tonga"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:889
+msgid "Turkey"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:890
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:891
+msgid "Tuvalu"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:892
+msgid "Taiwan"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:893
+msgid "Tanzania"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:894
+msgid "Ukraine"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:895
+msgid "Uganda"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:896
+msgid "U.S. Minor Outlying Islands"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:897
+msgid "United States"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:898
+msgid "Uruguay"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:899
+msgid "Uzbekistan"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:900
+msgid "Vatican City"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:901
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:902
+msgid "North Vietnam"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:903
+msgid "Venezuela"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:904
+msgid "British Virgin Islands"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:905
+msgid "U.S. Virgin Islands"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:906
+msgid "Vietnam"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:907
+msgid "Vanuatu"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:908
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:909
+msgid "Wake Island"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:910
+msgid "Samoa"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:911
+msgid "People's Democratic Republic of Yemen"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:912
+msgid "Yemen"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:913
+msgid "Mayotte"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:914
+msgid "South Africa"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:915
+msgid "Zambia"
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:916
 msgid "Zimbabwe"
 msgstr ""
