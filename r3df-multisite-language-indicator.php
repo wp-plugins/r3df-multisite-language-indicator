@@ -3,7 +3,7 @@
 Plugin Name: 	R3DF - Multisite Language Indicator
 Description:    Indicates the site language beside the site title in the toolbar to help identify sites
 Plugin URI:		http://r3df.com/
-Version: 		1.0.1
+Version: 		1.0.2
 Text Domain:	r3df_multisite_language_indicator
 Domain Path: 	/lang/
 Author:         R3DF
@@ -111,11 +111,11 @@ class R3DF_Multisite_Language_Indicator {
 			// get blog option to get flag settings etc.
 			$options = get_option( 'r3df_multisite_language_indicator', $this->_defaults );
 			$locale = get_option( 'WPLANG' );
-			$country_code = strtolower( $this->get_locale_country_code( $locale ) ? : 'Unknown' );
+			$country_code = strtolower( $this->get_locale_country_code( $locale ) ? $this->get_locale_country_code( $locale ) : 'Unknown' );
 			$site_name = $wp_admin_bar->get_node( 'blog-'.$site['blog_id'] );
 			$site_name->title = str_replace( '<div class="blavatar"></div>', '', $site_name->title );
 			// language
-			$lang = $this->get_locale_language_name( $locale, 'english' ) ? : 'Unknown';
+			$lang = $this->get_locale_language_name( $locale, 'english' ) ? $this->get_locale_language_name( $locale, 'english' ) : 'Unknown';
 			if ( ! empty( $this->_options['display_language']['before'] ) ) {
 				$site_name->title = '<span class="mli_lang mli_lang-'.$lang.'">'.$this->localize_language_name( $lang ).' - ' . $site_name->title;
 			}
@@ -132,7 +132,7 @@ class R3DF_Multisite_Language_Indicator {
 			// flags
 			if ( $this->_options['enable_locale_flags'] ) {
 				if ( ! empty( $options['site_flag'] ) && 'auto' != $options['site_flag'] ) {
-					$country_code = strtolower( $options['site_flag'] ?: 'Unknown' );
+					$country_code = strtolower( $options['site_flag'] ? $options['site_flag'] : 'Unknown' );
 				}
 				$site_name->title = '<span class="mli-flag mli-flag-'.$country_code.( is_rtl() ? ' rtl' : '' ).'"></span>' . $site_name->title;
 			} else {
@@ -144,10 +144,10 @@ class R3DF_Multisite_Language_Indicator {
 
 		// Add indicators to site name
 		$locale = get_option( 'WPLANG' );
-		$country_code = strtolower( $this->get_locale_country_code( $locale ) ? : 'Unknown' );
+		$country_code = strtolower( $this->get_locale_country_code( $locale ) ? $this->get_locale_country_code( $locale ) : 'Unknown' );
 		$site_name = $wp_admin_bar->get_node( 'site-name' );
 		// language
-		$lang = $this->get_locale_language_name( $locale, 'english' ) ? : 'Unknown';
+		$lang = $this->get_locale_language_name( $locale, 'english' ) ? $this->get_locale_language_name( $locale, 'english' ) : 'Unknown';
 		if ( ! empty( $this->_options['display_language']['before'] ) ) {
 			$site_name->title = '<span class="mli_lang mli_lang-'.$lang.'">'.$this->localize_language_name( $lang ).' - ' . $site_name->title;
 		}
@@ -164,7 +164,7 @@ class R3DF_Multisite_Language_Indicator {
 		// flag
 		if ( $this->_options['enable_locale_flags'] ) {
 			if ( ! empty( $this->_options['site_flag'] ) && 'auto' != $this->_options['site_flag'] ) {
-				$country_code = strtolower( $this->_options['site_flag'] ? : 'Unknown' );
+				$country_code = strtolower( $this->_options['site_flag'] ? $this->_options['site_flag'] : 'Unknown' );
 			}
 			$site_name->title = '<span class="mli-flag mli-flag-'.$country_code.( is_rtl() ? ' rtl' : '' ).'"></span>' . $site_name->title;
 			$site_name->meta['class'] = isset( $site_name->meta['class'] ) ? $site_name->meta['class'] . ' hide-site-name-icon' : 'hide-site-name-icon';
@@ -283,7 +283,7 @@ class R3DF_Multisite_Language_Indicator {
 		<label>
 			<select name="r3df_multisite_language_indicator[site_flag]">
 				<?php
-				$country_code = strtolower( $this->get_locale_country_code( get_option( 'WPLANG' ) ) ? : 'Unknown' );
+				$country_code = strtolower( $this->get_locale_country_code( get_option( 'WPLANG' ) ) ? $this->get_locale_country_code( get_option( 'WPLANG' ) ) : 'Unknown' );
 				echo '<option class="mli-flag mli-flag-'.$country_code.( is_rtl() ? ' rtl' : '' ).'" value="auto"'. selected( $this->_options['site_flag'], 'auto' ) . '>' . __( 'Auto detect', 'r3df_multisite_language_indicator' ) . '</option>';
 				foreach ( $this->get_country_names() as $country_code => $country_name ) {
 					echo '<option class="mli-flag mli-flag-'.strtolower( $country_code ).( is_rtl() ? ' rtl' : '' ).'" value="'.$country_code.'"'. selected( $this->_options['site_flag'], $country_code ) . '>' . $country_name . '</option>';
