@@ -2,7 +2,7 @@
 Contributors: r3df
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MX3FLF4YGXRLE
 Tags: dashboard, multi-lingual, multilingual, language, languages, network, site tag, site indicator, site, indicator, locale, flag
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires at least: 4.1
 Tested up to: 4.1
 License: GPLv2 or later
@@ -16,7 +16,8 @@ A plugin that adds language indicators, either a flag, locale or language, besid
 named sites in multilingual multisites. This is most helpfull in sites with admin language selectors, where the admin language does not
 reflect the site language.
 
-There is a French translation of this plugin included. It was mostly a test of the translation of the plugin.  It's not a great translation, if you can improve it please let me know.
+There is a French translation of this plugin included. The French translation was created mostly to test the localization of the plugin.
+It's a "machine" translation, and as a result, not very good. If you can improve it, or provide translations for other languages, please let me know.
 
 
 == Installation ==
@@ -44,6 +45,9 @@ The hard way:
 
 
 == Changelog ==
+= Version 1.0.3 =
+* Options refactoring - made most of them global
+
 = Version 1.0.2 =
 * Reverted shortform ternary operators incompatible with php 5.2
 
@@ -55,6 +59,10 @@ The hard way:
 
 
 == Upgrade Notice ==
+= Version 1.0.3 =
+* Options refactoring - made most of them global
+* Plugin options may need to be reselected
+
 = Version 1.0.2 =
 * Reverted some shortform ternary operators incompatible with php 5.2
 
