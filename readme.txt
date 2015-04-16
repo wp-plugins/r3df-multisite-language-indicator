@@ -2,7 +2,7 @@
 Contributors: r3df
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MX3FLF4YGXRLE
 Tags: dashboard, multi-lingual, multilingual, language, languages, network, site tag, site indicator, site, indicator, locale, flag
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires at least: 4.1
 Tested up to: 4.1
 License: GPLv2 or later
@@ -44,11 +44,16 @@ The hard way:
 
 
 == Changelog ==
+= Version 1.0.1 =
+* Code refactoring
 
 = Version 1.0.0 =
 * initial release
 
 
 == Upgrade Notice ==
+= Version 1.0.1 =
+* Code refactoring
+
 = 1.0.0 =
 * Initial release

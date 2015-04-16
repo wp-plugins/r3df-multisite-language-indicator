@@ -3,7 +3,7 @@
 Plugin Name: 	R3DF - Multisite Language Indicator
 Description:    Indicates the site language beside the site title in the toolbar to help identify sites
 Plugin URI:		http://r3df.com/
-Version: 		1.0.0
+Version: 		1.0.1
 Text Domain:	r3df_multisite_language_indicator
 Domain Path: 	/lang/
 Author:         R3DF
@@ -28,6 +28,8 @@ Copyright: 		R-Cubed Design Forge
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+// TODO
+// Test rtl languages
 
 //avoid direct calls to this file where wp core files not present
 if ( ! function_exists( 'add_action' ) ) {
@@ -132,7 +134,7 @@ class R3DF_Multisite_Language_Indicator {
 				if ( ! empty( $options['site_flag'] ) && 'auto' != $options['site_flag'] ) {
 					$country_code = strtolower( $options['site_flag'] ?: 'Unknown' );
 				}
-				$site_name->title = '<span class="mli-flag mli-flag-'.$country_code.'"></span>' . $site_name->title;
+				$site_name->title = '<span class="mli-flag mli-flag-'.$country_code.( is_rtl() ? ' rtl' : '' ).'"></span>' . $site_name->title;
 			} else {
 				$site_name->title = '<div class="blavatar"></div>' . $site_name->title;
 			}
@@ -164,7 +166,7 @@ class R3DF_Multisite_Language_Indicator {
 			if ( ! empty( $this->_options['site_flag'] ) && 'auto' != $this->_options['site_flag'] ) {
 				$country_code = strtolower( $this->_options['site_flag'] ? : 'Unknown' );
 			}
-			$site_name->title = '<span class="mli-flag mli-flag-'.$country_code.'"></span>' . $site_name->title;
+			$site_name->title = '<span class="mli-flag mli-flag-'.$country_code.( is_rtl() ? ' rtl' : '' ).'"></span>' . $site_name->title;
 			$site_name->meta['class'] = isset( $site_name->meta['class'] ) ? $site_name->meta['class'] . ' hide-site-name-icon' : 'hide-site-name-icon';
 		}
 		$wp_admin_bar->add_node( $site_name );
@@ -235,9 +237,9 @@ class R3DF_Multisite_Language_Indicator {
 	 */
 	function r3df_mli_options_validate( $input ) {
 		$newinput['enable_locale_flags'] = ( $input['enable_locale_flags'] == 'true' ) ? true : false;
-		$countries = array_keys( $this->get_country_names() );
-		$countries[] = 'auto';
-		if ( in_array( $input['site_flag'], $countries ) ) {
+		$country_codes = array_keys( $this->get_country_names() );
+		$country_codes[] = 'auto';
+		if ( in_array( $input['site_flag'], $country_codes ) ) {
 			$newinput['site_flag'] = $input['site_flag'];
 		}
 		$newinput['enable_locale_abbreviations']['before'] = ( $input['enable_locale_abbreviations']['before'] == 'true' ) ? true : false;
@@ -282,13 +284,9 @@ class R3DF_Multisite_Language_Indicator {
 			<select name="r3df_multisite_language_indicator[site_flag]">
 				<?php
 				$country_code = strtolower( $this->get_locale_country_code( get_option( 'WPLANG' ) ) ? : 'Unknown' );
-				echo '<option class="mli-flag mli-flag-'.$country_code.'" value="auto"'. selected( $this->_options['site_flag'], 'auto' ) . '>' . __( 'Auto detect', 'r3df_multisite_language_indicator' ) . '</option>';
-				//foreach ( $this->get_installed_languages() as $lang ) {
-				//	$country_code = strtolower( $this->get_locale_country_code( $lang ) ? : 'Unknown' );
-				//	echo '<option class="mli-flag mli-flag-'.$country_code.'" value="'.$lang.'"'. selected( $this->_options['site_flag'], $lang ) . '>' . ( $this->get_locale_language_name( $lang ) ? : __( 'Unknown', 'r3df_multisite_language_indicator' ) ) . '</option>';
-				//}
+				echo '<option class="mli-flag mli-flag-'.$country_code.( is_rtl() ? ' rtl' : '' ).'" value="auto"'. selected( $this->_options['site_flag'], 'auto' ) . '>' . __( 'Auto detect', 'r3df_multisite_language_indicator' ) . '</option>';
 				foreach ( $this->get_country_names() as $country_code => $country_name ) {
-					echo '<option class="mli-flag mli-flag-'.strtolower( $country_code ).'" value="'.$country_code.'"'. selected( $this->_options['site_flag'], $country_code ) . '>' . $country_name . '</option>';
+					echo '<option class="mli-flag mli-flag-'.strtolower( $country_code ).( is_rtl() ? ' rtl' : '' ).'" value="'.$country_code.'"'. selected( $this->_options['site_flag'], $country_code ) . '>' . $country_name . '</option>';
 				}
 				?>
 			</select>
@@ -356,12 +354,82 @@ class R3DF_Multisite_Language_Indicator {
 		<h2><?php echo 'R3DF - Multisite Language Indicator'; ?></h2>
 		<h3><?php echo __( 'Options', 'r3df_multisite_language_indicator' ); ?></h3>
 		<p><?php echo __( 'TBD', 'r3df_multisite_language_indicator' ); ?></p>
-		<p style="margin-top: 50px;padding-top:10px; border-top: solid 1px #ccc;">
+		<p class="r3df-help">
 			<a href="http://wordpress.org/extend/plugins/r3df-multisite-language-indicator/" target="_blank"><?php echo __( 'Plugin Directory', 'r3df_multisite_language_indicator' ) ?></a> |
 			<a href="http://wordpress.org/extend/plugins/r3df-multisite-language-indicator/changelog/" target="_blank"><?php echo __( 'Change Logs', 'r3df_multisite_language_indicator' ) ?></a>
 			<span class="alignright">&copy; 2015 <?php echo __( 'by', 'r3df_multisite_language_indicator' ) ?> <a href="http://r3df.com/" target="_blank">R3DF</a></span>
 		</p>
 		<?php
+	}
+
+
+	/* ****************************************************
+	 * Utility functions
+	 * ****************************************************/
+
+	/**
+	 * Plugin language file loader
+	 *
+	 */
+	function _text_domain() {
+		// Load language files - files must be r3df-mli-xx_XX.mo
+		load_plugin_textdomain( 'r3df_multisite_language_indicator', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
+	}
+
+	/**
+	 * Admin scripts and styles loader
+	 *
+	 * @param $hook
+	 *
+	 */
+	function _load_admin_scripts_and_styles( $hook ) {
+		//if ( 'edit.php' != $hook ) {
+		//	return;
+		//}
+
+		// Get the plugin version (added to js file loaded to clear browser caches on change)
+		$plugin = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
+
+		// Register and enqueue the css files
+		wp_register_style( 'r3df_mli_admin_style', plugins_url( '/css/admin-style.css', __FILE__ ), false, $plugin['Version'] );
+		wp_enqueue_style( 'r3df_mli_admin_style' );
+
+		wp_register_style( 'r3df_mli_flag_icon_style', plugins_url( '/css/flag-icon-css.css', __FILE__ ), false, $plugin['Version'] );
+		wp_enqueue_style( 'r3df_mli_flag_icon_style' );
+	}
+
+
+	/* ****************************************************
+	 * Activate and deactivate functions
+	 * ****************************************************/
+
+	/**
+	 * Initialize options and abort with error on insufficient requirements
+	 *
+	 */
+	function activate_plugin() {
+		global $wp_version;
+		$version_error = array();
+		if ( ! version_compare( $wp_version, '4.1', '>=' ) ) {
+			$version_error['WordPress Version'] = array( 'required' => '4.1', 'found' => $wp_version );
+		}
+		//if ( ! version_compare( phpversion(), '4.4.3', '>=' ) ) {
+		//	$error['PHP Version'] = array( 'required' => '4.4.3', 'found' => phpversion() );
+		//}
+		if ( 0 != count( $version_error ) ) {
+			$current = get_option( 'active_plugins' );
+			array_splice( $current, array_search( plugin_basename( __FILE__ ), $current ), 1 );
+			update_option( 'active_plugins', $current );
+			if ( 0 != count( $version_error ) ) {
+				echo '<table>';
+				echo '<tr class="r3df-header"><td><strong>'.__( 'Plugin can not be activated.', 'r3df_multisite_language_indicator' ) . '</strong></td><td> | '.__( 'required', 'r3df_multisite_language_indicator' ) . '</td><td> | '.__( 'actual', 'r3df_multisite_language_indicator' ) . '</td></tr>';
+				foreach ( $version_error as $key => $value ) {
+					echo '<tr><td>'.$key.'</td><td align=\"center\"> &gt;= <strong>' . $value['required'] . '</strong></td><td align="center"><span class="r3df-alert">' . $value['found'] . '</span></td></tr>';
+				}
+				echo '</table>';
+			}
+			exit();
+		}
 	}
 
 
@@ -406,28 +474,37 @@ class R3DF_Multisite_Language_Indicator {
 	 * Return language name for a locale (in native tongue, or english)
 	 *
 	 * @param $locale
-	 * @param $language
+	 * @param $mode
 	 *
 	 * @return string
 	 *
 	 */
-	function get_locale_language_name( $locale, $language = 'native' ) {
-		if ( ! in_array( $language, array( 'english', 'native' ) ) ) {
-			$language = 'native';
+	function get_locale_language_name( $locale, $mode = 'native' ) {
+		if ( ! in_array( $mode, array( 'english', 'native', 'localized' ) ) ) {
+			$mode = 'native';
+		}
+		$localized = false;
+		if ( 'localized' == $mode ) {
+			$mode = 'english';
+			$localized = true;
 		}
 		// Get names using concepts from wp_dropdown_languages in I10n.php
 		require_once( ABSPATH . 'wp-admin/includes/translation-install.php' );
 		$translations = wp_get_available_translations();
-		$translations['en_US'] = array( 'language' => 'en_US', "{$language}_name" => 'English (United States)' );
+		$translations['en_US'] = array( 'language' => 'en_US', "{$mode}_name" => 'English (United States)' );
 		foreach ( $translations as $translation ) {
-			$language_names[ $translation['language'] ] = $translation[ "{$language}_name" ];
+			$language_names[ $translation['language'] ] = $translation[ "{$mode}_name" ];
 		}
-		return isset( $language_names[ $locale ] ) ? $language_names[ $locale ] : false;
+		$language_name = isset( $language_names[ $locale ] ) ? $language_names[ $locale ] : false;
+		if ( $language_name && $localized ) {
+			return $this->localize_language_name( $language_name );
+		}
+		return $language_name;
 	}
 
+
 	/**
-	 * Return localized name for a language (basically just creates a place to put the names so they can be translated)
-	 * Name list generated from wp_get_available_translations() 'english_name'
+	 * Return localized name for an English (WordPress) language name
 	 *
 	 * @param $language_name
 	 *
@@ -435,6 +512,57 @@ class R3DF_Multisite_Language_Indicator {
 	 *
 	 */
 	function localize_language_name( $language_name ) {
+		$language_names = $this->get_language_names();
+		return ( isset( $language_names[ $language_name ] ) ? $language_names[ $language_name ] : false );
+	}
+
+	/**
+	 * Return alpha-2 code for locale's country
+	 *
+	 * @param $locale
+	 *
+	 * @return string
+	 *
+	 */
+	function get_locale_country_code( $locale ) {
+		$country_code = false;
+		if ( $position = strpos( $locale, '_' ) ) {
+			$country_code = substr( $locale, $position + 1 );
+			if ( empty( $country_code ) ) {
+				$country_code = false;
+			}
+		}
+		return $country_code;
+	}
+
+	/**
+	 * Return country name for a locale (localized if site language is not English)
+	 *
+	 * @param $locale
+	 *
+	 * @return string
+	 *
+	 */
+	function get_locale_country_name_localized( $locale ) {
+		$country_names = $this->get_country_names();
+		$country_code = $this->get_locale_country_code( $locale );
+		return ( isset( $country_names[ $country_code ] ) ? $country_names[ $country_code ] : false );
+	}
+
+
+	/* ****************************************************
+	 * Name list functions
+	 * ****************************************************/
+
+	/**
+	 * Return language names list (will be localized)
+	 * This function is basically just a place to put the names so they can be translated
+	 * Name list generated from wp_get_available_translations() 'english_name'
+	 *
+	 * @return array
+	 *
+	 */
+	function get_language_names() {
 		$language_names = array(
 			'Arabic' => __( 'Arabic', 'r3df_multisite_language_indicator' ),
 			'Azerbaijani' => __( 'Azerbaijani', 'r3df_multisite_language_indicator' ),
@@ -492,131 +620,15 @@ class R3DF_Multisite_Language_Indicator {
 			'English (United States)' => __( 'English (United States)', 'r3df_multisite_language_indicator' ),
 			'Unknown' => __( 'Unknown', 'r3df_multisite_language_indicator' ),
 		);
+		asort( $language_names );
 
-		return ( isset( $language_names[ $language_name ] ) ? $language_names[ $language_name ] : false );
+		return ( $language_names );
 	}
-
-	/**
-	 * Return alpha-2 code for locale's country
-	 *
-	 * @param $locale
-	 *
-	 * @return string
-	 *
-	 */
-	function get_locale_country_code( $locale ) {
-		$country_code = false;
-		if ( $position = strpos( $locale, '_' ) ) {
-			$country_code = substr( $locale, $position + 1 );
-			if ( empty( $country_code ) ) {
-				$country_code = false;
-			}
-		}
-		return $country_code;
-	}
-
-
-	/**
-	 * Return country name for a locale (localized if site language is not English)
-	 *
-	 * @param $locale
-	 *
-	 * @return string
-	 *
-	 */
-	function get_locale_country_name_localized( $locale ) {
-		$country_names = $this->get_country_names();
-		$country_code = $this->get_locale_country_code( $locale );
-		return ( isset( $country_names[ $country_code ] ) ? $country_names[ $country_code ] : false );
-	}
-
-
-	/* ****************************************************
-	 * Utility functions
-	 * ****************************************************/
-
-	/**
-	 * Plugin language file loader
-	 *
-	 */
-	function _text_domain() {
-		// Load language files - files must be r3df-mli-xx_XX.mo
-		load_plugin_textdomain( 'r3df_multisite_language_indicator', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
-	}
-
-	/**
-	 * Admin scripts and styles loader
-	 *
-	 * @param $hook
-	 *
-	 */
-	function _load_admin_scripts_and_styles( $hook ) {
-		//if ( 'edit.php' != $hook ) {
-		//	return;
-		//}
-
-		// Get the plugin version (added to js file loaded to clear browser caches on change)
-		$plugin = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
-
-		// Register and enqueue the css files
-		wp_register_style( 'r3df_mli_admin_style', plugins_url( '/css/admin-style.css', __FILE__ ), false, $plugin['Version'] );
-		wp_enqueue_style( 'r3df_mli_admin_style' );
-
-		//wp_register_style( 'r3df_mli_famfamfam_style', plugins_url( '/css/famfamfam-flag-icons.css', __FILE__ ), false, $plugin['Version'] );
-		//wp_enqueue_style( 'r3df_mli_famfamfam_style' );
-
-		wp_register_style( 'r3df_mli_flag_icon_style', plugins_url( '/css/flag-icon-css.css', __FILE__ ), false, $plugin['Version'] );
-		wp_enqueue_style( 'r3df_mli_flag_icon_style' );
-
-		if ( is_rtl() ) {
-			wp_register_style( 'r3df_mli_admin_style_rtl', plugins_url( '/css/admin-style-rtl.css', __FILE__ ), false, $plugin['Version'] );
-			wp_enqueue_style( 'r3df_mli_admin_style_rtl' );
-		}
-	}
-
-
-	/* ****************************************************
-	 * Activate and deactivate functions
-	 * ****************************************************/
-
-	/**
-	 * Initialize options and abort with error on insufficient requirements
-	 *
-	 */
-	function activate_plugin() {
-		global $wp_version;
-		$version_error = array();
-		if ( ! version_compare( $wp_version, '4.1', '>=' ) ) {
-			$version_error['WordPress Version'] = array( 'required' => '4.1', 'found' => $wp_version );
-		}
-		//if ( ! version_compare( phpversion(), '4.4.3', '>=' ) ) {
-		//	$error['PHP Version'] = array( 'required' => '4.4.3', 'found' => phpversion() );
-		//}
-		if ( 0 != count( $version_error ) ) {
-			$current = get_option( 'active_plugins' );
-			array_splice( $current, array_search( plugin_basename( __FILE__ ), $current ), 1 );
-			update_option( 'active_plugins', $current );
-			if ( 0 != count( $version_error ) ) {
-				echo '<table>';
-				echo '<tr class="r3df-header"><td><strong>'.__( 'Plugin can not be activated.', 'r3df_multisite_language_indicator' ) . '</strong></td><td> | '.__( 'required', 'r3df_multisite_language_indicator' ) . '</td><td> | '.__( 'actual', 'r3df_multisite_language_indicator' ) . '</td></tr>';
-				foreach ( $version_error as $key => $value ) {
-					echo '<tr><td>'.$key.'</td><td align=\"center\"> &gt;= <strong>' . $value['required'] . '</strong></td><td align="center"><span class="r3df-alert">' . $value['found'] . '</span></td></tr>';
-				}
-				echo '</table>';
-			}
-			exit();
-		}
-	}
-
-
-	/* ****************************************************
-	 * Name list functions
-	 * ****************************************************/
 
 	/**
 	 * Return country names list (will be localized)
 	 *
-	 * @return string
+	 * @return array
 	 *
 	 */
 	function get_country_names() {
