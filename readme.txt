@@ -2,7 +2,7 @@
 Contributors: r3df
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MX3FLF4YGXRLE
 Tags: dashboard, multi-lingual, multilingual, language, languages, network, site tag, site indicator, site, indicator, locale, flag
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires at least: 4.1
 Tested up to: 4.1
 License: GPLv2 or later
@@ -42,9 +42,13 @@ The hard way:
 1. Flag indicators.
 1. Flag indicators and locale indicators.
 1. Language indicator.
+1. Plugin options.
 
 
 == Changelog ==
+= Version 1.0.4 =
+* Options refactoring - switched display options to user
+
 = Version 1.0.3 =
 * Options refactoring - made most of them global
 
@@ -59,6 +63,10 @@ The hard way:
 
 
 == Upgrade Notice ==
+= Version 1.0.4 =
+* Options refactoring - switched display options to user
+* Plugin options may need to be reselected
+
 = Version 1.0.3 =
 * Options refactoring - made most of them global
 * Plugin options may need to be reselected

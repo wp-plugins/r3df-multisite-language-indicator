@@ -1,18 +1,3 @@
-.r3df-header {
-    border-bottom: 1px solid #000;
-}
-
-.r3df-alert {
-    color:red;
-    font-weight:bold;
-}
-
-.r3df-help {
-    border-top: 1px solid #ccc;
-    margin-top: 50px;
-    padding-top: 10px;
-}
-
 .wp-admin #wpadminbar #wp-admin-bar-site-name.hide-site-name-icon > .ab-item::before {
     display: none;
 }

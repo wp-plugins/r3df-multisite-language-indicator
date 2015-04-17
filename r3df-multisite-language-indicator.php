@@ -3,7 +3,7 @@
 Plugin Name: 	R3DF - Multisite Language Indicator
 Description:    Indicates the site language beside the site title in the toolbar to help identify sites
 Plugin URI:		http://r3df.com/
-Version: 		1.0.3
+Version: 		1.0.4
 Text Domain:	r3df_multisite_language_indicator
 Domain Path: 	/lang/
 Author:         R3DF
@@ -50,17 +50,20 @@ if ( function_exists( 'is_multisite' ) && is_multisite() ) {
 class R3DF_Multisite_Language_Indicator {
 	// options defaults
 	private $_global_defaults = array(
-		'version' => '1.0',
-		'enable_locale_flags' => array( 'before' => true, 'after' => false ),
-		'enable_locale_abbreviations' => array( 'before' => false, 'after' => false ),
-		'display_language' => array( 'before' => false, 'after' => false ),
+		'db_version' => '1.0',
 		'cleanup_on_uninstall' => true,
 	);
 	private $_local_defaults = array(
 		'site_flag' => 'auto',
 	);
+	private $_user_defaults = array(
+		'enable_locale_flags' => array( 'before' => true, 'after' => false ),
+		'enable_locale_abbreviations' => array( 'before' => false, 'after' => false ),
+		'display_language' => array( 'before' => false, 'after' => false ),
+	);
 	private $_global_options = array();
 	private $_local_options = array();
+	private $_user_options = array();
 
 
 	/**
@@ -72,16 +75,10 @@ class R3DF_Multisite_Language_Indicator {
 			return;
 		}
 
-		// get plugin options
+		// get plugin options - can't get user options yet, user is not identified at this point, add_action for them
 		$this->_global_options = get_site_option( 'r3df_multisite_language_indicator_global', $this->_global_defaults );
 		$this->_local_options = get_option( 'r3df_multisite_language_indicator', $this->_local_defaults );
-		// make absolutely sure that at least defaults are set (causes fatal errors later if not)
-		//if ( empty( $this->_local_opti_global_optionsons ) ) {
-		//	$this->_global_options = $this->_global_defaults;
-		//}
-		//if ( empty( $this->_local_options ) ) {
-		//	$this->_local_options = $this->_local_defaults;
-		//}
+		add_action( 'init', array( $this, 'load_user_options' ) );
 
 		// register plugin activation hook
 		register_activation_hook( plugin_basename( __FILE__ ), array( &$this, 'activate_plugin' ) );
@@ -100,6 +97,20 @@ class R3DF_Multisite_Language_Indicator {
 		add_action( 'wp_before_admin_bar_render', array( $this, 'add_toolbar_indicators' ) );
 	}
 
+	/**
+	 * Loads user options
+	 *
+	 */
+	function load_user_options() {
+		$this->_user_options = get_user_meta( get_current_user_id(), 'r3df_multisite_language_indicator', true );
+
+		// make sure that user options are set
+		if ( empty( $this->_user_options ) ) {
+			$this->_user_options = $this->_user_defaults;
+		}
+	}
+
+
 	/* ****************************************************
      * Toolbar Language Flag Functions
      * ****************************************************/
@@ -113,9 +124,9 @@ class R3DF_Multisite_Language_Indicator {
 
 		// if no toolbar or no indicators, bail...
 		if ( ( function_exists( 'is_admin_bar_showing' ) && ! is_admin_bar_showing() ) ||
-		      ( empty( $this->_global_options['enable_locale_flags']['before'] ) && empty( $this->_global_options['enable_locale_flags']['after'] ) &&
-		        empty( $this->_global_options['enable_locale_abbreviations']['before'] ) && empty( $this->_global_options['enable_locale_abbreviations']['after'] ) &&
-		        empty( $this->_global_options['display_language']['before'] ) && empty( $this->_global_options['display_language']['after'] )
+		      ( empty( $this->_user_options['enable_locale_flags']['before'] ) && empty( $this->_user_options['enable_locale_flags']['after'] ) &&
+		        empty( $this->_user_options['enable_locale_abbreviations']['before'] ) && empty( $this->_user_options['enable_locale_abbreviations']['after'] ) &&
+		        empty( $this->_user_options['display_language']['before'] ) && empty( $this->_user_options['display_language']['after'] )
 		      ) ) {
 			return;
 		}
@@ -136,21 +147,21 @@ class R3DF_Multisite_Language_Indicator {
 			$site_name->title = str_replace( '<div class="blavatar"></div>', '', $site_name->title );
 			// language
 			$lang = $this->get_locale_language_name( $locale, 'english' ) ? $this->get_locale_language_name( $locale, 'english' ) : 'Unknown';
-			if ( ! empty( $this->_global_options['display_language']['before'] ) ) {
+			if ( ! empty( $this->_user_options['display_language']['before'] ) ) {
 				$site_name->title = '<span class="mli_lang mli_lang-'.$lang.'">'.$this->localize_language_name( $lang ).' - ' . $site_name->title;
 			}
-			if ( ! empty( $this->_global_options['display_language']['after'] ) ) {
+			if ( ! empty( $this->_user_options['display_language']['after'] ) ) {
 				$site_name->title = $site_name->title . ' <span class="mli_lang mli_lang-'.$lang.'"> - '.$this->localize_language_name( $lang ).'</span>';
 			}
 			// locale
-			if ( ! empty( $this->_global_options['enable_locale_abbreviations']['before'] ) ) {
+			if ( ! empty( $this->_user_options['enable_locale_abbreviations']['before'] ) ) {
 				$site_name->title = '<span class="mli_locale mli_locale-'.$locale.'">('.$locale.')</span> ' . $site_name->title;
 			}
-			if ( ! empty( $this->_global_options['enable_locale_abbreviations']['after'] ) ) {
+			if ( ! empty( $this->_user_options['enable_locale_abbreviations']['after'] ) ) {
 				$site_name->title = $site_name->title . ' <span class="mli_locale mli_locale-'.$locale.'">('.$locale.')</span>';
 			}
 			// flags
-			if ( ! empty( $this->_global_options['enable_locale_flags']['before'] ) ) {
+			if ( ! empty( $this->_user_options['enable_locale_flags']['before'] ) ) {
 				$local_options = get_blog_option( $site['blog_id'], 'r3df_multisite_language_indicator' );
 				if ( ! empty( $local_options['site_flag'] ) && 'auto' != $local_options['site_flag'] ) {
 					$country_code = strtolower( $local_options['site_flag'] ? $local_options['site_flag'] : 'Unknown' );
@@ -169,21 +180,21 @@ class R3DF_Multisite_Language_Indicator {
 		$site_name = $wp_admin_bar->get_node( 'site-name' );
 		// language
 		$lang = $this->get_locale_language_name( $locale, 'english' ) ? $this->get_locale_language_name( $locale, 'english' ) : 'Unknown';
-		if ( ! empty( $this->_global_options['display_language']['before'] ) ) {
+		if ( ! empty( $this->_user_options['display_language']['before'] ) ) {
 			$site_name->title = '<span class="mli_lang mli_lang-'.$lang.'">'.$this->localize_language_name( $lang ).' - ' . $site_name->title;
 		}
-		if ( ! empty( $this->_global_options['display_language']['after'] ) ) {
+		if ( ! empty( $this->_user_options['display_language']['after'] ) ) {
 			$site_name->title = $site_name->title . ' <span class="mli_lang mli_lang-'.$lang.'"> - '.$this->localize_language_name( $lang ).'</span>';
 		}
 		// locale
-		if ( ! empty( $this->_global_options['enable_locale_abbreviations']['before'] ) ) {
+		if ( ! empty( $this->_user_options['enable_locale_abbreviations']['before'] ) ) {
 			$site_name->title = '<span class="mli_locale mli_locale-'.$locale.'">('.$locale.')</span> ' . $site_name->title;
 		}
-		if ( ! empty( $this->_global_options['enable_locale_abbreviations']['after'] ) ) {
+		if ( ! empty( $this->_user_options['enable_locale_abbreviations']['after'] ) ) {
 			$site_name->title = $site_name->title . ' <span class="mli_locale mli_locale-'.$locale.'">('.$locale.')</span>';
 		}
 		// flag
-		if ( ! empty( $this->_global_options['enable_locale_flags']['before'] ) ) {
+		if ( ! empty( $this->_user_options['enable_locale_flags']['before'] ) ) {
 			if ( ! empty( $this->_local_options['site_flag'] ) && 'auto' != $this->_local_options['site_flag'] ) {
 				$country_code = strtolower( $this->_local_options['site_flag'] ? $this->_local_options['site_flag'] : 'Unknown' );
 			}
@@ -236,13 +247,16 @@ class R3DF_Multisite_Language_Indicator {
 	function r3df_mli_settings() {
 		// Option name in db
 		register_setting( 'r3df_multisite_language_indicator', 'r3df_multisite_language_indicator', array( $this, 'r3df_mli_options_validate' ) );
+		$user = wp_get_current_user();
+		add_settings_section( 'r3df_mli_user_options', sprintf( __( 'Language indicator preferences for: %s', 'r3df_multisite_language_indicator' ), $user->display_name ), array( $this, 'user_options_form_section' ), 'r3df_mli' );
+		add_settings_field( 'indicator_options', __( 'Select language indicators to display:', 'r3df_multisite_language_indicator' ), array( $this, 'user_options_form_item' ), 'r3df_mli', 'r3df_mli_user_options', array( 'label_for' => 'user_options' ) );
 
-		// Language selector settings
-		add_settings_section( 'r3df_mli_local_options', __( 'Local options:', 'r3df_multisite_language_indicator' ), array( $this, 'r3df_mli_local_options_form_section' ), 'r3df_mli' );
+		// Local site settings
+		add_settings_section( 'r3df_mli_local_options', __( 'Options for this site:', 'r3df_multisite_language_indicator' ), array( $this, 'local_options_form_section' ), 'r3df_mli' );
 		add_settings_field( 'site_flag', __( 'Flag to use for site indicators:', 'r3df_multisite_language_indicator' ), array( $this, 'site_flag_form_item' ), 'r3df_mli', 'r3df_mli_local_options', array( 'label_for' => 'site_flag' ) );
 
-		add_settings_section( 'r3df_mli_global_options', __( 'Global options:', 'r3df_multisite_language_indicator' ), array( $this, 'r3df_mli_global_options_form_section' ), 'r3df_mli' );
-		add_settings_field( 'indicator_options', __( 'Select language indicators to display:', 'r3df_multisite_language_indicator' ), array( $this, 'indicator_options_form_item' ), 'r3df_mli', 'r3df_mli_global_options', array( 'label_for' => 'indicator_options' ) );
+		// Global site settings
+		add_settings_section( 'r3df_mli_global_options', __( 'Global options for all sites:', 'r3df_multisite_language_indicator' ), array( $this, 'global_options_form_section' ), 'r3df_mli' );
 		add_settings_field( 'cleanup_on_uninstall', __( 'Cleanup all settings at plugin uninstall:', 'r3df_multisite_language_indicator' ), array( $this, 'cleanup_on_uninstall_form_item' ), 'r3df_mli', 'r3df_mli_global_options', array( 'label_for' => 'cleanup_on_uninstall' ) );
 	}
 
@@ -254,16 +268,21 @@ class R3DF_Multisite_Language_Indicator {
 	 * @return mixed
 	 */
 	function r3df_mli_options_validate( $input ) {
+
+		// user settings - save directly with meta update
+		$user_settings['enable_locale_flags']['before'] = ( isset( $input['enable_locale_flags']['before'] ) && 'true' == $input['enable_locale_flags']['before'] ) ? true : false;
+		$user_settings['enable_locale_flags']['after'] = ( isset( $input['enable_locale_flags']['after'] ) && 'true' == $input['enable_locale_flags']['before'] ) ? true : false;
+
+		$user_settings['enable_locale_abbreviations']['before'] = ( isset( $input['enable_locale_abbreviations']['before'] ) && 'true' == $input['enable_locale_abbreviations']['before'] ) ? true : false;
+		$user_settings['enable_locale_abbreviations']['after'] = ( isset( $input['enable_locale_abbreviations']['after'] ) && 'true' == $input['enable_locale_abbreviations']['after'] ) ? true : false;
+
+		$user_settings['display_language']['before'] = ( isset( $input['display_language']['before'] ) && 'true' == $input['display_language']['before'] ) ? true : false;
+		$user_settings['display_language']['after'] = ( isset( $input['display_language']['after'] ) && 'true' == $input['display_language']['after'] ) ? true : false;
+
+		update_user_meta( get_current_user_id(), 'r3df_multisite_language_indicator', $user_settings );
+
 		// global settings - save directly with option update
-		$global_settings['enable_locale_flags']['before'] = ( isset( $input['enable_locale_flags']['before'] ) && 'true' == $input['enable_locale_flags']['before'] ) ? true : false;
-		$global_settings['enable_locale_flags']['after'] = ( isset( $input['enable_locale_flags']['after'] ) && 'true' == $input['enable_locale_flags']['before'] ) ? true : false;
-
-		$global_settings['enable_locale_abbreviations']['before'] = ( isset( $input['enable_locale_abbreviations']['before'] ) && 'true' == $input['enable_locale_abbreviations']['before'] ) ? true : false;
-		$global_settings['enable_locale_abbreviations']['after'] = ( isset( $input['enable_locale_abbreviations']['after'] ) && 'true' == $input['enable_locale_abbreviations']['after'] ) ? true : false;
-
-		$global_settings['display_language']['before'] = ( isset( $input['display_language']['before'] ) && 'true' == $input['display_language']['before'] ) ? true : false;
-		$global_settings['display_language']['after'] = ( isset( $input['display_language']['after'] ) && 'true' == $input['display_language']['after'] ) ? true : false;
-
+		$global_settings['db_version'] = $this->_global_defaults['db_version'];
 		$global_settings['cleanup_on_uninstall'] = ( isset( $input['cleanup_on_uninstall'] ) && 'true' == $input['cleanup_on_uninstall'] ) ? true : false;
 
 		update_site_option( 'r3df_multisite_language_indicator_global', $global_settings );
@@ -280,25 +299,49 @@ class R3DF_Multisite_Language_Indicator {
 		return $local_settings;
 	}
 
-
 	/**
-	 * Settings page html content - r3df_mli_local_options section
+	 * Settings page html content - user_options section
 	 *
 	 * @param $args
 	 *
 	 */
-	function r3df_mli_local_options_form_section( $args ) {
-		echo __( 'The options in this section, are for this site only.', 'r3df_multisite_language_indicator' );
+	function user_options_form_section( $args ) {
+		echo '<hr>'.__( 'The preference settings in this section are for the current user only.', 'r3df_multisite_language_indicator' );
 	}
 
 	/**
-	 * Settings page html content - r3df_mli_global_options section
+	 * Settings page html content - local_options section
 	 *
 	 * @param $args
 	 *
 	 */
-	function r3df_mli_global_options_form_section( $args ) {
-		echo __( 'The options in this section, are for ALL sites.', 'r3df_multisite_language_indicator' );
+	function local_options_form_section( $args ) {
+		echo '<hr>'.__( 'The options in this section are for this site only. The settings in this section affect all users.', 'r3df_multisite_language_indicator' );
+	}
+
+	/**
+	 * Settings page html content - global_options section
+	 *
+	 * @param $args
+	 *
+	 */
+	function global_options_form_section( $args ) {
+		echo '<hr>'.__( 'The options in this section are for ALL sites in the network.', 'r3df_multisite_language_indicator' );
+	}
+
+	/**
+	 * Settings page html content - indicator_options_form_item
+	 *
+	 * @param $args
+	 *
+	 */
+	function user_options_form_item( $args ) {
+		echo '<label><input type="checkbox" id="enable_locale_flags[before]" name="r3df_multisite_language_indicator[enable_locale_flags][before]" ' . checked( ! empty( $this->_user_options['enable_locale_flags']['before'] ), true, false ) . ' value="true" >' . __( 'Country flags - before site name', 'r3df_multisite_language_indicator' ) . '</label>';
+		echo '<br><label><input type="checkbox" id="enable_locale_abbreviations[before]" name="r3df_multisite_language_indicator[enable_locale_abbreviations][before]" ' . checked( ! empty( $this->_user_options['enable_locale_abbreviations']['before'] ), true, false ) . ' value="true" >' . __( 'Locale code - before site name', 'r3df_multisite_language_indicator' ) . '</label>';
+		echo '<br><label><input type="checkbox" id="enable_locale_abbreviations[after]" name="r3df_multisite_language_indicator[enable_locale_abbreviations][after]" ' . checked( ! empty( $this->_user_options['enable_locale_abbreviations']['after'] ), true, false ) . ' value="true" >' . __( 'Locale code - after site name', 'r3df_multisite_language_indicator' ) . '</label>';
+		echo '<br><label><input type="checkbox" id="display_language[before]" name="r3df_multisite_language_indicator[display_language][before]" ' . checked( ! empty( $this->_user_options['display_language']['before'] ), true, false ) . ' value="true" >' . __( 'Site language - before site name', 'r3df_multisite_language_indicator' ) . '</label>';
+		echo '<br><label><input type="checkbox" id="display_language[after]" name="r3df_multisite_language_indicator[display_language][after]" ' . checked( ! empty( $this->_user_options['display_language']['after'] ), true, false ) . ' value="true" >' . __( 'Site language - after site name', 'r3df_multisite_language_indicator' ) . '</label>';
+
 	}
 
 	/**
@@ -321,21 +364,6 @@ class R3DF_Multisite_Language_Indicator {
 			<br><small><?php _e( 'Auto detect uses the country code of the site\'s locale setting,<br>or you can choose a flag to represent the site.', 'r3df_multisite_language_indicator' ); ?></small>
 		</label>
 	<?php
-	}
-
-	/**
-	 * Settings page html content - indicator_options_form_item
-	 *
-	 * @param $args
-	 *
-	 */
-	function indicator_options_form_item( $args ) {
-		echo '<label><input type="checkbox" id="enable_locale_flags[before]" name="r3df_multisite_language_indicator[enable_locale_flags][before]" '. checked( ! empty( $this->_global_options['enable_locale_flags']['before'] ), true, false ) . ' value="true" >' . __( 'Country flags - before site name', 'r3df_multisite_language_indicator' ) .'</label>';
-		echo '<br><label><input type="checkbox" id="enable_locale_abbreviations[before]" name="r3df_multisite_language_indicator[enable_locale_abbreviations][before]" ' . checked( ! empty( $this->_global_options['enable_locale_abbreviations']['before'] ), true, false ) . ' value="true" >' . __( 'Locale code - before site name', 'r3df_multisite_language_indicator' ) .'</label>';
-		echo '<br><label><input type="checkbox" id="enable_locale_abbreviations[after]" name="r3df_multisite_language_indicator[enable_locale_abbreviations][after]" ' . checked( ! empty( $this->_global_options['enable_locale_abbreviations']['after'] ), true, false ) . ' value="true" >' . __( 'Locale code - after site name', 'r3df_multisite_language_indicator' ) .'</label>';
-		echo '<br><label><input type="checkbox" id="display_language[before]" name="r3df_multisite_language_indicator[display_language][before]" ' . checked( ! empty( $this->_global_options['display_language']['before'] ), true, false ) . ' value="true" >' . __( 'Site language - before site name', 'r3df_multisite_language_indicator' ) .'</label>';
-		echo '<br><label><input type="checkbox" id="display_language[after]" name="r3df_multisite_language_indicator[display_language][after]" ' . checked( ! empty( $this->_global_options['display_language']['after'] ), true, false ) . ' value="true" >' . __( 'Site language - after site name', 'r3df_multisite_language_indicator' ) .'</label>';
-
 	}
 
 	/**
@@ -404,19 +432,21 @@ class R3DF_Multisite_Language_Indicator {
 	 *
 	 */
 	function _load_admin_scripts_and_styles( $hook ) {
-		//if ( 'edit.php' != $hook ) {
-		//	return;
-		//}
-
 		// Get the plugin version (added to js file loaded to clear browser caches on change)
 		$plugin = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
 
-		// Register and enqueue the css files
+		// Register and enqueue the global css files
 		wp_register_style( 'r3df_mli_admin_style', plugins_url( '/css/admin-style.css', __FILE__ ), false, $plugin['Version'] );
 		wp_enqueue_style( 'r3df_mli_admin_style' );
 
 		wp_register_style( 'r3df_mli_flag_icon_style', plugins_url( '/css/flag-icon-css.css', __FILE__ ), false, $plugin['Version'] );
 		wp_enqueue_style( 'r3df_mli_flag_icon_style' );
+
+		// Register and enqueue the plugin settings page css files
+		if ( 'settings_page_r3df-multisite-language-indicator' == $hook ) {
+			wp_register_style( 'r3df_mli_plugin_page_style', plugins_url( '/css/plugin-page-style.css', __FILE__ ), false, $plugin['Version'] );
+			wp_enqueue_style( 'r3df_mli_plugin_page_style' );
+		}
 	}
 
 
