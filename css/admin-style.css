@@ -26,3 +26,6 @@ option.mli-flag {
     background-position: right top !important;
 }
 
+.mli-site-table td {
+    padding: 0 10px 0 0;
+}
