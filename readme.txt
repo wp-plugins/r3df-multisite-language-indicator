@@ -2,7 +2,7 @@
 Contributors: r3df
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MX3FLF4YGXRLE
 Tags: dashboard, multi-lingual, multilingual, language, languages, network, site tag, site indicator, site, indicator, locale, flag
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Requires at least: 4.1
 Tested up to: 4.2
 License: GPLv2 or later
@@ -47,6 +47,9 @@ The hard way:
 
 
 == Changelog ==
+= Version 1.0.7 =
+* Language file updates
+
 = Version 1.0.6 =
 * Reverted shortform ternary operator incompatible with php 5.2
 
@@ -72,6 +75,9 @@ The hard way:
 
 
 == Upgrade Notice ==
+= Version 1.0.7 =
+* Language file updates
+
 = Version 1.0.6 =
 * Reverted shortform ternary operator incompatible with php 5.2
 
