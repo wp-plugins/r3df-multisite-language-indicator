@@ -263,7 +263,7 @@ class R3DF_Multisite_Language_Indicator {
 									<td>
 										<select id="site_flag[<?php echo $site['blog_id'] ?>]" name="r3df_multisite_language_indicator[site_flag][<?php echo $site['blog_id'] ?>]">
 											<?php
-											$country_code = strtolower( $this->get_locale_country_code( $language_locale ) ?: 'Unknown' );
+											$country_code = strtolower( $this->get_locale_country_code( $language_locale ) ? $this->get_locale_country_code( $language_locale ) : 'Unknown' );
 											echo '<option class="mli-flag mli-flag-' . $country_code . ( is_rtl() ? ' rtl' : '' ) . '" value="auto"' . selected( $options['site_flag'][ $site['blog_id'] ], 'auto' ) . '>' . __( 'Auto detect', 'r3df_multisite_language_indicator' ) . '</option>';
 											foreach ( $this->get_country_names() as $country_code => $country_name ) {
 												echo '<option class="mli-flag mli-flag-' . strtolower( $country_code ) . ( is_rtl() ? ' rtl' : '' ) . '" value="' . $country_code . '"' . selected( $options['site_flag'][ $site['blog_id'] ], $country_code ) . '>' . $country_name . '</option>';
