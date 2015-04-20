@@ -3,7 +3,7 @@
 Plugin Name: 	R3DF - Multisite Language Indicator
 Description:    Indicates the site language beside the site title in the toolbar to help identify sites
 Plugin URI:		http://r3df.com/
-Version: 		1.0.6
+Version: 		1.0.7
 Text Domain:	r3df_multisite_language_indicator
 Domain Path: 	/lang/
 Author:         R3DF
@@ -345,7 +345,7 @@ class R3DF_Multisite_Language_Indicator {
 		<div class="wrap">
 			<div id="icon-tools" class="icon32"></div>
 			<h2><?php echo 'R3DF - Multisite Language Indicator'; ?></h2>
-			<?php printf( __( 'Please see your %s page to select display options for site indicators.' , 'r3df_dashboard_language_switcher' ), '<a href="profile.php" target="_blank">'.__( 'User Profile','r3df_dashboard_language_switcher' ) .'</a>' );?>
+			<?php printf( __( 'Please see your %s page to select display options for site indicators.' , 'r3df_dashboard_language_switcher' ), '<a href="profile.php" target="_blank">'.__( 'Profile','r3df_dashboard_language_switcher' ) .'</a>' );?>
 
 			<form action="options.php" method="post">
 				<?php settings_fields( 'r3df_multisite_language_indicator' ); ?>
