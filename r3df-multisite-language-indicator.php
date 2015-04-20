@@ -3,7 +3,7 @@
 Plugin Name: 	R3DF - Multisite Language Indicator
 Description:    Indicates the site language beside the site title in the toolbar to help identify sites
 Plugin URI:		http://r3df.com/
-Version: 		1.0.5
+Version: 		1.0.6
 Text Domain:	r3df_multisite_language_indicator
 Domain Path: 	/lang/
 Author:         R3DF
