@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R3DF - Multisite Language Indicator\n"
-"POT-Creation-Date: 2015-04-20 18:31-0500\n"
-"PO-Revision-Date: 2015-04-20 18:31-0500\n"
+"POT-Creation-Date: 2015-04-20 23:54-0500\n"
+"PO-Revision-Date: 2015-04-20 23:54-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -84,6 +84,10 @@ msgstr ""
 
 #: r3df-multisite-language-indicator.php:424
 msgid "The options in this section are for ALL sites in the network."
+msgstr ""
+
+#: r3df-multisite-language-indicator.php:425
+msgid "Only users who are Super Admins can see/modify these settings."
 msgstr ""
 
 #: r3df-multisite-language-indicator.php:439

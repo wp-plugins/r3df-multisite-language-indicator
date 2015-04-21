@@ -3,7 +3,7 @@
 Plugin Name: 	R3DF - Multisite Language Indicator
 Description:    Indicates the site language beside the site title in the toolbar to help identify sites
 Plugin URI:		http://r3df.com/
-Version: 		1.0.7
+Version: 		1.0.8
 Text Domain:	r3df_multisite_language_indicator
 Domain Path: 	/lang/
 Author:         R3DF
@@ -31,7 +31,7 @@ Copyright: 		R-Cubed Design Forge
 // TODO
 // Test rtl languages
 
-//avoid direct calls to this file where wp core files not present
+// Avoid direct calls to this file where wp core files not present
 if ( ! function_exists( 'add_action' ) ) {
 	header( 'Status: 403 Forbidden' );
 	header( 'HTTP/1.1 403 Forbidden' );
@@ -77,7 +77,7 @@ class R3DF_Multisite_Language_Indicator {
 		// get plugin options - can't get user options yet, user is not identified at this point, add_action for them
 		$this->_global_options = get_site_option( 'r3df_multisite_language_indicator_global', $this->_global_defaults );
 		//$this->_local_options = get_option( 'r3df_multisite_language_indicator', $this->_local_defaults );
-		add_action( 'init', array( $this, 'load_user_options' ) );
+		add_action( 'plugins_loaded', array( $this, 'load_user_options' ), 0 );
 
 		// register plugin activation hook
 		register_activation_hook( plugin_basename( __FILE__ ), array( &$this, 'activate_plugin' ) );
@@ -237,7 +237,7 @@ class R3DF_Multisite_Language_Indicator {
 					<label for="enable_locale_abbreviations[before]"><input type="checkbox" id="enable_locale_abbreviations[before]" name="r3df_multisite_language_indicator[enable_locale_abbreviations][before]"<?php echo checked( ! empty( $options['enable_locale_abbreviations']['before'] ), true, false ); ?> value="true">
 						<?php _e( 'Locale code - before site name', 'r3df_multisite_language_indicator' ); ?></label>
 					<br>
-					<label for="enable_locale_abbreviations[v]"><input type="checkbox" id="enable_locale_abbreviations[after]" name="r3df_multisite_language_indicator[enable_locale_abbreviations][after]"<?php echo checked( ! empty( $options['enable_locale_abbreviations']['after'] ), true, false ); ?> value="true">
+					<label for="enable_locale_abbreviations[after]"><input type="checkbox" id="enable_locale_abbreviations[after]" name="r3df_multisite_language_indicator[enable_locale_abbreviations][after]"<?php echo checked( ! empty( $options['enable_locale_abbreviations']['after'] ), true, false ); ?> value="true">
 						<?php _e( 'Locale code - after site name', 'r3df_multisite_language_indicator' ); ?></label>
 					<br>
 					<label for="display_language[before]"><input type="checkbox" id="display_language[before]" name="r3df_multisite_language_indicator[display_language][before]"<?php echo checked( ! empty( $options['display_language']['before'] ), true, false ) ?> value="true">
@@ -296,14 +296,14 @@ class R3DF_Multisite_Language_Indicator {
 		if ( ! empty( $_POST['r3df_multisite_language_indicator'] ) ) {
 			$input = $_POST['r3df_multisite_language_indicator'];
 
-			$user_settings['enable_locale_flags']['before'] = ( isset( $input['enable_locale_flags']['before'] ) && 'true' == $input['enable_locale_flags']['before'] ) ? true : false;
-			$user_settings['enable_locale_flags']['after']  = ( isset( $input['enable_locale_flags']['after'] ) && 'true' == $input['enable_locale_flags']['before'] ) ? true : false;
+			$user_settings['enable_locale_flags']['before'] = ! empty( $input['enable_locale_flags']['before'] ) ? true : false;
+			$user_settings['enable_locale_flags']['after']  = ! empty( $input['enable_locale_flags']['after'] ) ? true : false;
 
-			$user_settings['enable_locale_abbreviations']['before'] = ( isset( $input['enable_locale_abbreviations']['before'] ) && 'true' == $input['enable_locale_abbreviations']['before'] ) ? true : false;
-			$user_settings['enable_locale_abbreviations']['after']  = ( isset( $input['enable_locale_abbreviations']['after'] ) && 'true' == $input['enable_locale_abbreviations']['after'] ) ? true : false;
+			$user_settings['enable_locale_abbreviations']['before'] = ! empty( $input['enable_locale_abbreviations']['before'] ) ? true : false;
+			$user_settings['enable_locale_abbreviations']['after']  = ! empty( $input['enable_locale_abbreviations']['after'] ) ? true : false;
 
-			$user_settings['display_language']['before'] = ( isset( $input['display_language']['before'] ) && 'true' == $input['display_language']['before'] ) ? true : false;
-			$user_settings['display_language']['after']  = ( isset( $input['display_language']['after'] ) && 'true' == $input['display_language']['after'] ) ? true : false;
+			$user_settings['display_language']['before'] = ! empty( $input['display_language']['before'] ) ? true : false;
+			$user_settings['display_language']['after']  = ! empty( $input['display_language']['after'] ) ? true : false;
 
 			$country_codes                  = array_keys( $this->get_country_names() );
 			$country_codes[]                = 'auto';
@@ -392,7 +392,7 @@ class R3DF_Multisite_Language_Indicator {
 		if ( current_user_can( 'manage_network' ) ) {
 			// global settings - save directly with option update
 			$global_settings['db_version']           = $this->_global_defaults['db_version'];
-			$global_settings['save_settings_on_uninstall'] = ( isset( $input['save_settings_on_uninstall'] ) && 'true' == $input['save_settings_on_uninstall'] ) ? true : false;
+			$global_settings['save_settings_on_uninstall'] = ( ! empty( $input['save_settings_on_uninstall'] ) ) ? true : false;
 
 			update_site_option( 'r3df_multisite_language_indicator_global', $global_settings );
 		}
@@ -422,7 +422,7 @@ class R3DF_Multisite_Language_Indicator {
 	 */
 	function global_options_form_section( $args ) {
 		echo '<hr>' . __( 'The options in this section are for ALL sites in the network.', 'r3df_multisite_language_indicator' );
-		echo '<br><small>Only users who are Super Admins can see/modify these settings.</small>';
+		echo '<br><small>'.__( 'Only users who are Super Admins can see/modify these settings.', 'r3df_multisite_language_indicator' ).'</small>';
 		if ( ! current_user_can( 'manage_network' ) ) {
 			echo '<table class="form-table"></table>';
 		}

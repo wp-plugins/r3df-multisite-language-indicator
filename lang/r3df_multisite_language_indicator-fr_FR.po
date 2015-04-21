@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R3DF - Multisite Language Indicator\n"
-"POT-Creation-Date: 2015-04-20 18:21-0500\n"
-"PO-Revision-Date: 2015-04-20 18:21-0500\n"
+"POT-Creation-Date: 2015-04-20 23:54-0500\n"
+"PO-Revision-Date: 2015-04-20 23:54-0500\n"
 "Last-Translator: \n"
 "Language-Team: r3df\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.7.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -93,6 +93,12 @@ msgstr ""
 #: r3df-multisite-language-indicator.php:424
 msgid "The options in this section are for ALL sites in the network."
 msgstr "Les options de cette section sont pour tous les sites du réseau."
+
+#: r3df-multisite-language-indicator.php:425
+msgid "Only users who are Super Admins can see/modify these settings."
+msgstr ""
+"Seuls les utilisateurs qui sont Super Admins peuvent voir/modifier ces "
+"paramètres."
 
 #: r3df-multisite-language-indicator.php:439
 msgid "Yes"
